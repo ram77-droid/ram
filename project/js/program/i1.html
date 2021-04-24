@@ -1,0 +1,28 @@
+<html>
+<body>
+<script>
+let range = {
+  x: 1,
+  y: 5,
+
+  [Symbol.iterator]() {
+    this.current = this.x;
+	this.last=this.y;
+    return this;
+  },
+
+  next() {
+    if (this.current < this.y) {
+      return { done: false, value: this.current++ };
+    } else {
+      return { done: true };
+    }
+  }
+};
+
+for (let num of range) {
+  alert(num);
+}
+</script>
+</body>
+</html>
